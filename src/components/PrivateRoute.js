@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
-import {Redirect} from 'react-router';
-// import { Route } from 'react-router-dom';
+import {Navigate} from 'react-router';
 import { AuthContext } from '../context/AuthContext';
-function PrivateRouter({component:component,...rest}){
+import Feed from './Feed';
+export default function PrivateRouter(){
     const {user} = useContext(AuthContext);
-    return {
-        <Route {...rest}  render = {props=>{
-            return user ? component {...props} /> :<Redirect to="login"/>
-        }} />
-    }
+    return (
+        <>
+        {
+        user ? <Feed></Feed>: <Navigate replace to= "/login"/>
+        }
+        </>
+    )
 
 }

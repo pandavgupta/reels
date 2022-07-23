@@ -2,7 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+// import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Alert from '@mui/material/Alert';
@@ -11,10 +11,10 @@ import './Login.css'
 import insta from '../Assets/insta2.jpg'
 import phone_frame from '../Assets/phone_frame.png'
 // import {makeStyles} from '@mui/styles';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+// import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import {makeStyles} from '@mui/styles'
 import {Link, useNavigate} from 'react-router-dom'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import image0 from '../Assets/profile_image0.png'
 import image1 from '../Assets/profile_image1.png'
@@ -22,10 +22,10 @@ import image2 from '../Assets/message1.png'
 import image3 from '../Assets/status1.png'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Email } from '@material-ui/icons';
+// import { Email } from '@material-ui/icons';
 function Login() {
-    const store = useContext(AuthContext);
-    console.log(store);
+    // const store = useContext(AuthContext);
+    // console.log(store);
     const  useStyles = makeStyles({
         text1:{
             color: 'gray',
@@ -57,7 +57,7 @@ function Login() {
         try{
             setError('');
             setLoading(true);
-            let res = await login(email, password)
+             await login(email, password)
             setLoading(false)
             history("/feed", { replace: true });
 
@@ -88,10 +88,10 @@ function Login() {
                         // touchEnabled= {false}
                     >
                         <Slider className='slide_image'>
-                        <Slide index={0}><img src={image0}></img></Slide>
-                        <Slide index={1}><img src={image1}></img></Slide>
-                        <Slide index={2}><img src={image2}></img></Slide>
-                        <Slide index={3}><img src={image3}></img></Slide>
+                        <Slide index={0}><img src={image0} alt="images"></img></Slide>
+                        <Slide index={1}><img src={image1}  alt="images"></img></Slide>
+                        <Slide index={2}><img src={image2}  alt="images"></img></Slide>
+                        <Slide index={3}><img src={image3}  alt="images"></img></Slide>
                         </Slider>
                     </CarouselProvider>
                </div>
@@ -104,8 +104,8 @@ function Login() {
                 
                 <CardContent>
                     {error !== '' && <Alert severity="error" className={classes.Erorr_box} >{error}</Alert>}
-                    <TextField id="outlined-basic" label="E-mail" variant="outlined" fullWidth={true} margin='dense' size='normal' value={email} onChange={(e)=>{setEmail(e.target.value)}} />
-                    <TextField id="outlined-basic" label="Password" type="password" autoComplete="current-password" variant="outlined" fullWidth={true}  margin='dense' size='normal' value={password} onChange={(p)=>{setPassword(p.target.value)}} />
+                    <TextField id="email_id" label="E-mail" variant="outlined" fullWidth={true} margin='dense' size='normal' value={email} onChange={(e)=>{setEmail(e.target.value)}} />
+                    <TextField id="password_id" label="Password" type="password" autoComplete="current-password" variant="outlined" fullWidth={true}  margin='dense' size='normal' value={password} onChange={(p)=>{setPassword(p.target.value)}} />
                 </CardContent>
                 
                 <CardActions>

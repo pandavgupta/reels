@@ -1,5 +1,5 @@
 // It is for Global store using context api
-import React,{useState, useEffect, Children} from 'react';
+import React,{useState, useEffect} from 'react';
 import {auth} from '../firebase';
 export const AuthContext = React.createContext();
 
@@ -13,8 +13,8 @@ export const AuthContext = React.createContext();
     function login(email, password){
         return auth.signInWithEmailAndPassword(email, password);
     }
-    function logout(){
-        return auth.logout();
+    function logout (){
+         auth.signOut();
     }
     useEffect(()=>{
         const unsub = auth.onAuthStateChanged((user)=>{

@@ -4,7 +4,7 @@ import {AuthContext} from '../context/AuthContext'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+// import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Alert from '@mui/material/Alert';
@@ -100,6 +100,7 @@ function Signup() {
                 case 'running':
                     console.log('Upload is running');
                     break;
+                default: console.log("wrong option");
                 }
             }
             function fn2(error){
